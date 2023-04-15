@@ -8,6 +8,8 @@ type Props = {
   };
 };
 
+export const revalidate = 3;
+
 export function generateMetadata({ params }: Props): Metadata {
   return {
     title: `제품의 이름: ${params.slug}`,
