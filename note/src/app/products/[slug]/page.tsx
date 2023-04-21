@@ -1,3 +1,4 @@
+import GoProductsButton from "@/components/GoProductsButton";
 import { getProduct, getProducts } from "@/services/products";
 import { Metadata } from "next";
 import Image from "next/image";
@@ -31,6 +32,7 @@ export default async function PantsPage({ params: { slug } }: Props) {
         width={300}
         height={300}
       />
+      <GoProductsButton />
     </div>
   );
 }

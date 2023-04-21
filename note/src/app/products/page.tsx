@@ -3,12 +3,16 @@ import { getProducts } from "@/services/products";
 import Image from "next/image";
 import Link from "next/link";
 import clothesImage from "../../../public/images/clothes.jpg";
+import { redirect } from "next/navigation";
 
 // export const revalidate = 3;
 
 export default async function ProductsPage() {
   const products = await getProducts();
 
+  if (!products) {
+    redirect("/products");
+  }
   return (
     <div>
       <h1>제품 소개 페이지</h1>
