@@ -1,4 +1,4 @@
-import { getPost } from "@/service/post";
+import { getPostData } from "@/service/posts";
 
 type Props = {
   params: {
@@ -6,11 +6,12 @@ type Props = {
   };
 };
 
-export default async function PostPage({ params }: Props) {
-  const post = await getPost(params.title);
+export default async function PostPage({ params: { title } }: Props) {
+  const post = await getPostData(title);
   return (
     <div>
-      <pre>{post}</pre>
+      <h1>{post.title}</h1>
+      <pre>{post.content}</pre>
     </div>
   );
 }

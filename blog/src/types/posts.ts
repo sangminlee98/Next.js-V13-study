@@ -6,3 +6,5 @@ export type Post = {
   path: string;
   featured: boolean;
 };
+
+export type PostData = Post & { content: string };
