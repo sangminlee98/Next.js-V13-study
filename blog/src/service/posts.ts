@@ -34,3 +34,16 @@ export async function getPostData(fileName: string): Promise<PostData> {
 
   return { ...metadata, content };
 }
+
+export async function getNextPost(fileName: string): Promise<{
+  prevPost?: Post;
+  nextPost?: Post;
+}> {
+  const allPosts = await getAllPosts();
+  const postIndex = allPosts.findIndex((post) => post.path === fileName);
+  const data = {
+    prevPost: allPosts[postIndex - 1] || null,
+    nextPost: allPosts[postIndex + 1] || null,
+  };
+  return data;
+}
